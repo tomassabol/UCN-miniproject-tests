@@ -1,14 +1,14 @@
-package controllayer;
+package controller;
 
 import java.time.LocalDate;
 
-import modellayer.*;
-import databaselayer.DatabaseLayerException;
-import databaselayer.IDbPBuy;
-import databaselayer.DatabasePBuy;
+import model.*;
+import database.*;
+import database.IDbPBuy;
+import database.DatabasePBuy;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik Bærbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik Bï¿½rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 

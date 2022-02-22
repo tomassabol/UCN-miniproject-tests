@@ -1,9 +1,9 @@
-package controllayer;
+package controller;
 
-import databaselayer.DatabaseLayerException;
-import databaselayer.IDbPPrice;
-import databaselayer.DatabasePPrice;
-import modellayer.PPrice;
+import database.DatabaseLayerException;
+import database.IDbPPrice;
+import database.DatabasePPrice;
+import model.PPrice;
 
 public class ControlPrice {
 	

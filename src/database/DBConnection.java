@@ -1,4 +1,4 @@
-package databaselayer;
+package database;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -8,17 +8,30 @@ import java.sql.DriverManager;
 public class DBConnection {   
 	//Constants used to get access to the database
 	
-	private static final String  driver = "jdbc:sqlserver://localhost:1433";;
+	private static final String  driver = "jdbc:sqlserver://localhost:1433;databaseName=%s;encrypt=true;trustServerCertificate=true";
     private static final String  databaseName = ";databaseName=PayStation";
     
     private static String  userName = "; user=sa";
-    private static String password = ";password=<insert password>";
+    private static String password = ";password=UCNsecretpassword2022";
    
     private DatabaseMetaData dma;
     private static Connection con;
     
     // an instance of the class is generated
     private static DBConnection  instance = null;
+
+    public static void main(String[] args) {
+
+		/*
+		 * format URL
+		 * https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url
+		 * ?view=sql-server-ver15
+		 */
+
+		//String urlString = String.format("jdbc:sqlserver://%s:%s;databaseName=%s;encrypt=false", SERVERNAME, PORTNUMBER, DBNAME);
+		//String urlString = String.format("jdbc:sqlserver://%s:%s;databaseName=%s;encrypt=true;trustServerCertificate=true", SERVERNAME, PORTNUMBER, DBNAME);
+		new DBConnection();
+	}
 
     // the constructor is private to ensure that only one object of this class is created
     private DBConnection()

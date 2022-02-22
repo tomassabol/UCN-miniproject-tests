@@ -3,11 +3,11 @@ package test;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-import controllayer.*;
-import modellayer.*;
+import controller.*;
+import model.*;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik Bærbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik Bï¿½rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 

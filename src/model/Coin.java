@@ -1,4 +1,4 @@
-package modellayer;
+package model;
 
 public class Coin {
 

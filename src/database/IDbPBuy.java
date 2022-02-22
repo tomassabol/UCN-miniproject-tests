@@ -1,6 +1,6 @@
-package databaselayer;
+package database;
 
-import modellayer.PBuy;
+import model.PBuy;
 
 public interface IDbPBuy {
 

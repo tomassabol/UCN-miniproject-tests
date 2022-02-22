@@ -1,6 +1,6 @@
-package databaselayer;
+package database;
 
-import modellayer.PPrice;
+import model.PPrice;
 
 public interface IDbPPrice {
 

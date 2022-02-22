@@ -1,11 +1,11 @@
-package databaselayer;
+package database;
 
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.Calendar;
 import java.sql.SQLException;
 
-import modellayer.*;
+import model.*;
 
 public class DatabasePPrice implements IDbPPrice {
 	

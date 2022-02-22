@@ -1,6 +1,6 @@
-package modellayer;
+package model;
 
-import controllayer.IllegalCoinException;
+import controller.IllegalCoinException;
 
 public class PPayment {
 

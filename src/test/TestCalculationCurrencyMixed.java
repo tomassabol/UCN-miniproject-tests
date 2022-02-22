@@ -3,11 +3,11 @@ package test;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-import controllayer.*;
-import modellayer.*;
+import controller.*;
+import model.*;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik Bærbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik Bï¿½rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
@@ -22,7 +22,7 @@ public class TestCalculationCurrencyMixed {
 	}
 
 	/**
-	 * Entering 1 cent and 50 øre should make the display report 4 minutes parking time.
+	 * Entering 1 cent and 50 ï¿½re should make the display report 4 minutes parking time.
 	 */
 	@Test
 	public void shouldDisplay4MinFor1CentAnd1Ore() throws IllegalCoinException {

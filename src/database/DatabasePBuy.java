@@ -1,10 +1,10 @@
-package databaselayer;
+package database;
 
 import java.sql.*;
 import java.lang.NullPointerException;
 
-import modellayer.PBuy;
-import modellayer.PPayStation;
+import model.PBuy;
+import model.PPayStation;
 
 public class DatabasePBuy implements IDbPBuy {
 

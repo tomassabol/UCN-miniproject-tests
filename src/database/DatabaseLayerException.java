@@ -1,4 +1,4 @@
-package databaselayer;
+package database;
 
 @SuppressWarnings("serial")
 public class DatabaseLayerException extends Exception {

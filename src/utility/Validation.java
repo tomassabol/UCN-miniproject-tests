@@ -1,8 +1,8 @@
 package utility;
 
-import controllayer.IllegalCoinException;
-import modellayer.Coin;
-import modellayer.Currency;
+import controller.IllegalCoinException;
+import model.Coin;
+import model.Currency;
 
 public class Validation {
 	

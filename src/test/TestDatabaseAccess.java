@@ -11,14 +11,14 @@ import java.time.LocalDate;
 //import controllayer.IReceipt;
 //import controllayer.IllegalCoinException;
 
-import databaselayer.*;
-import modellayer.*;
-import controllayer.*;
+import database.*;
+import model.*;
+import controller.*;
 
 //import static org.junit.Assert.*;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik Bærbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik Bï¿½rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
