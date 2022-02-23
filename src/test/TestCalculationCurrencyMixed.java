@@ -22,16 +22,28 @@ public class TestCalculationCurrencyMixed {
 	}
 
 	/**
-	 * Entering 1 cent and 50 �re should make the display report 4 minutes parking time.
+	 * Entering 1 cent and 50 ore should make the display report 4 minutes parking time.
 	 */
 	@Test
-	public void shouldDisplay4MinFor1CentAnd1Ore() throws IllegalCoinException {
+	public void shouldDisplay4MinFor1CentAnd50Ore() throws IllegalCoinException {
 		// Arrange
+		int expectedParkingTime = 4;
+		int coinValueCent = 1;
+		
+		Currency.ValidCurrency coinCurrencyCent = Currency.ValidCurrency.EURO;
+		Currency.ValidCoinType coinTypeCent = Currency.ValidCoinType.FRACTION;
+		
+		int coinValueOre = 50;
+		Currency.ValidCurrency coinCurrencyOre = Currency.ValidCurrency.DKK;
+		Currency.ValidCoinType coinTypeOre = Currency.ValidCoinType.FRACTION;
 		
 		// Act
-
+		ps.addPayment(coinValueCent, coinCurrencyCent, coinTypeCent);
+		ps.addPayment(coinValueOre, coinCurrencyOre, coinTypeOre);
+		
+		
 		// Assert
-		assertEquals("Dummy", 0, 1);		
+		assertEquals("Should display 4 minutes for 1 cent and 1 ore", expectedParkingTime, ps.readDisplay());		
 	}
 
 	
