@@ -64,12 +64,20 @@ public class TestDatabaseAccess {
 		DatabasePBuy dbPbuy = new DatabasePBuy();
 		
 		// Act
-		int key = 0; //TODO: Call dbPbuy
+		int key = 0;
 		
-		// Assert
-		assertEquals("Dummy", key > 0);
-		
-	}	
+		try {
+			key = dbPbuy.insertParkingBuy(tempPBuy);
+			// Assert
+			assertTrue( key > 0);
+			tempPBuy.setId(key);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
 	
 	
 	@Test
@@ -118,6 +126,9 @@ public class TestDatabaseAccess {
 		// Act
 		try {
 			numDeleted = dbPbuy.deleteParkingBuy(tempPBuy);
+
+			// Assert
+			assertEquals(1, numDeleted );
 		} catch(Exception ex) { 
 			System.out.println("Error: " + ex.getMessage());
 		} finally {
@@ -125,7 +136,7 @@ public class TestDatabaseAccess {
 		}
 	
 		// Assert
-		assertEquals("One row deleted", 1, numDeleted );
+		assertEquals(1, numDeleted );
 	}	
 
 }
