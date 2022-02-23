@@ -12,7 +12,11 @@ local.properties
 .loadpath
 .classpath
 .recommenders
+<<<<<<< HEAD
 *.DS_Store
+=======
+.DS_Store
+>>>>>>> refs/remotes/origin/main
 DBConnection.java
 
 # External tool builders
