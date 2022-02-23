@@ -85,6 +85,7 @@ public class TestIllegalCoin {
 	@Test
 	public void shouldNotRejectEuroCoin() throws IllegalCoinException {
 		//Arrange
+		int parkingtime = 80;
 		int coinValue = 2;
 		
 		Currency.ValidCurrency coinCurrency = Currency.ValidCurrency.EURO;
@@ -93,6 +94,6 @@ public class TestIllegalCoin {
 		ps.addPayment(coinValue, coinCurrency, coinType);
 		
 		//Assert
-		assertEquals(coinValue, ps.readDisplay());
+		assertEquals(parkingtime, ps.readDisplay());
 	}
 }

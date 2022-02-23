@@ -1,6 +1,7 @@
 package database;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Calendar;
 import java.sql.SQLException;
@@ -34,10 +35,12 @@ public class DatabasePPrice implements IDbPPrice {
 			Statement stmt = con.createStatement();
 			stmt.setQueryTimeout(5);
 			// Todo: Get PPrice object
-			// ResultSet rs = stmt.executeQuery(baseSelect);
-			/*
-			 * Insert code 
-			 */
+			ResultSet rs = stmt.executeQuery(baseSelect);
+			rs.next();
+			price = rs.getInt(1);
+
+			pZone = new PZone(zoneId, "Name");
+			foundPrice = new PPrice(price, pZone);
 			stmt.close();
 		} catch (SQLException ex) {
 			foundPrice = null;

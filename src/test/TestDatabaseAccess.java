@@ -18,7 +18,7 @@ import controller.*;
 //import static org.junit.Assert.*;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik B�rbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik B?rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
@@ -69,8 +69,35 @@ public class TestDatabaseAccess {
 		try {
 			key = dbPbuy.insertParkingBuy(tempPBuy);
 			// Assert
-			assertTrue( key > 0);
+			assertTrue("Key should be greater than 0 (no error)", key > 0);
+
 			tempPBuy.setId(key);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+
+	/**
+	 * WARNING : The price at the idzonw 2 can change
+	 */
+	@Test
+	public void wasRetrievedPriceDatabaselayer() {
+		// Arrange
+		PPrice foundPrice = null;
+		int pZoneId = 2;
+		DatabasePPrice dbPrice = new DatabasePPrice();
+
+		
+		// Act
+		try {
+			foundPrice = dbPrice.getPriceByZoneId(pZoneId);
+
+			// Assert
+			assertNotNull("A PPrice should have been discovered", foundPrice);
+			assertEquals("Found price should be equal to 25", foundPrice.getParkingPrice(), 25);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -81,32 +108,22 @@ public class TestDatabaseAccess {
 	
 	
 	@Test
-	public void wasRetrievedPriceDatabaselayer() {
-		// Arrange
-		PPrice foundPrice = null;
-		int pZoneId = 2;
-		DatabasePPrice dbPrice = new DatabasePPrice();
-
-		
-		// Act
-
-		// Assert
-		assertEquals("Dummy", 0, 1);
-		
-	}
-	
-	
-	@Test
 	public void wasRetrievedPriceControllayer() {
-
 		// Arrange
-
+		ControlPrice controlPrice = new ControlPrice();
+		PPrice pPrice = null;
 		
 		// Act
+		try {
+			pPrice = controlPrice.getPriceRemote(2);
 
-		// Assert
-		assertEquals("Dummy", 0, 1);
-		
+			// Assert
+			assertEquals("Found price should be equal to 25", 25, pPrice.getParkingPrice());
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 	}	
 	
 	
@@ -128,15 +145,12 @@ public class TestDatabaseAccess {
 			numDeleted = dbPbuy.deleteParkingBuy(tempPBuy);
 
 			// Assert
-			assertEquals(1, numDeleted );
+			assertEquals("One row deleted", 1, numDeleted );
 		} catch(Exception ex) { 
 			System.out.println("Error: " + ex.getMessage());
 		} finally {
 			DBConnection.closeConnection();
 		}
-	
-		// Assert
-		assertEquals(1, numDeleted );
 	}	
 
 }
