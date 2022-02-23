@@ -12,6 +12,8 @@ local.properties
 .loadpath
 .classpath
 .recommenders
+*.DS_Store
+DBConnection.java
 
 # External tool builders
 .externalToolBuilders/
