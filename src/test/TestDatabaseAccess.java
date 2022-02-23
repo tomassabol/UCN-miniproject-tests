@@ -5,17 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import java.time.LocalDate;
 
-//import controllayer.ControlPayStation;
-//import controllayer.Currency;
-//import controllayer.IPayStation;
-//import controllayer.IReceipt;
-//import controllayer.IllegalCoinException;
-
 import database.*;
 import model.*;
 import controller.*;
-
-//import static org.junit.Assert.*;
 
 /**
  * Inspired by the book: Flexible, Reliable Software Henrik B?rbak Christensen:
