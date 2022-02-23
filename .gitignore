@@ -11,6 +11,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.DS_Store
+DBConnection.java
 
 # External tool builders
 .externalToolBuilders/
