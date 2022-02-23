@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 
 import controller.*;
 import model.*;
+import model.Currency.ValidCoinType;
+import model.Currency.ValidCurrency;
 
 /**
  * Inspired by the book: Flexible, Reliable Software Henrik B�rbak Christensen:
@@ -26,7 +28,17 @@ public class TestReset {
 	 */
 	@Test
 	public void shouldClearAfterBuy() throws IllegalCoinException, Exception {
-		//
+		// Arrange
+		int coinValue = 1;
+		Currency.ValidCurrency currency = ValidCurrency.EURO;
+		Currency.ValidCoinType coinType = ValidCoinType.FRACTION;
+
+		// Act
+		ps.addPayment(coinValue, currency, coinType);
+		PReceipt receipt = ps.buy();
+
+		// Assert
+		assertEquals(ps.readDisplay(), 0);
 	}
 
 	/**
@@ -34,6 +46,16 @@ public class TestReset {
 	 */
 	@Test
 	public void shouldClearAfterCancel() throws IllegalCoinException {
-		//
+		// Arrange
+		int coinValue = 1;
+		Currency.ValidCurrency currency = ValidCurrency.EURO;
+		Currency.ValidCoinType coinType = ValidCoinType.FRACTION;
+
+		// Act
+		ps.addPayment(coinValue, currency, coinType);
+		ps.cancel();
+
+		// Assert
+		assertEquals(ps.readDisplay(), 0);
 	}
 }
