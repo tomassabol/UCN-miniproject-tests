@@ -44,4 +44,12 @@ public class Coin {
 	public void setCoinType(Currency.ValidCoinType coinType) {
 		this.coinType = coinType;
 	}
+
+	public Currency.InvalidCurrency getinvalidCurrency(){
+		return invalidCurrency;
+	}
+	
+	public void setCurrency(Currency.InvalidCurrency invalidCurrency){
+		this.invalidCurrency = invalidCurrency;
+	}
 }

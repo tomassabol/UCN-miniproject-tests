@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 /**
  * Inspired by the book: Flexible, Reliable Software
  * Henrik B�rbak Christensen: Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
@@ -15,7 +13,6 @@ public class PPrice {
 	private PZone parkingZone;	
 	// Exchange rate 1 Euro to DKK
 	private double exchangeEuroDkk;
-	private Date startTime;
 
 	// Hard coded values
 	public PPrice() {

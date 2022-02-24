@@ -26,6 +26,12 @@ public class PZone {
 		this.id = pZoneId;
 	}
 	
-	//TODO: Add getter/setter for name
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 }

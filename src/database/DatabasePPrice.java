@@ -10,7 +10,6 @@ import model.*;
 
 public class DatabasePPrice implements IDbPPrice {
 	
-	//Hardcoded for now. TODO: Use database
 	public PPrice getCurrentPrice() {
 		return new PPrice();
 	}
@@ -29,7 +28,7 @@ public class DatabasePPrice implements IDbPPrice {
 		System.out.println(baseSelect);
 	
 		//ResultSet rs = null; 
-		int price, pZoneId;
+		int price;
 		PZone pZone; 
 		try {
 			Statement stmt = con.createStatement();
