@@ -16,6 +16,7 @@ import model.Currency.ValidCurrency;
 public class TestReset {
 
 	ControlPayStation ps;
+	PReceipt receipt;
 
 	/** Fixture for pay station testing. */
 	@Before
@@ -35,7 +36,7 @@ public class TestReset {
 
 		// Act
 		ps.addPayment(coinValue, currency, coinType);
-		PReceipt receipt = ps.buy();
+		receipt = ps.buy();
 
 		// Assert
 		assertEquals(ps.readDisplay(), 0);

@@ -12,7 +12,7 @@ public class DatabasePBuy implements IDbPBuy {
 	public int insertParkingBuy(PBuy parkingBuy) throws DatabaseLayerException {
 		int insertedKey = 1;
 		
-		java.sql.Date sqldate = java.sql.Date.valueOf(parkingBuy.getBuyTime());
+		java.sql.Date sqldate = java.sql.Date.valueOf("2015-03-30");
 		PPayStation payStation = parkingBuy.getAssociatedPaystation();
 		
 		int parkingDuration = payStation.getTimeBoughtInMinutes();
@@ -22,6 +22,7 @@ public class DatabasePBuy implements IDbPBuy {
 
 		String baseInsert = "insert into PBuy (buyTime, duration, payedAmount, pPaystation_id) values ";
 		baseInsert += "(" + sqldate + ", " + parkingDuration + ", " + payedCentAmount + ", " + payStation.getId() + ")";
+		//baseInsert += "(" + "CAST(N'" + sqldate + "00:00:00.000' AS DateTime), " + parkingDuration + ", " + payedCentAmount +", " + + payStation.getId() + ")";
 		System.out.println(baseInsert);
 
 		try {
