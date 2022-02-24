@@ -34,7 +34,22 @@ public class TestIllegalCoin {
 		//Arrange
 		int coinValue = 1;
 		
-		Currency.ValidCurrency coinCurrency = Currency.ValidCurrency.NOK;
+		Currency.InvalidCurrency coinCurrency = Currency.InvalidCurrency.NOK;
+		Currency.ValidCoinType coinType = Currency.ValidCoinType.INTEGER;
+		//Act
+		ps.addPayment(coinValue, coinCurrency, coinType);
+		
+		//Assert
+		assertEquals(IllegalCoinException.class, ps.readDisplay());
+	}
+
+	// British coin
+	@Test(expected = IllegalCoinException.class)
+	public void shouldRejectIllegalCurrencyGBPCoin() throws IllegalCoinException {
+		//Arrange
+		int coinValue = 1;
+		
+		Currency.InvalidCurrency coinCurrency = Currency.InvalidCurrency.GBP;
 		Currency.ValidCoinType coinType = Currency.ValidCoinType.INTEGER;
 		//Act
 		ps.addPayment(coinValue, coinCurrency, coinType);
