@@ -1,8 +1,7 @@
 package model;
 
 import controller.ControlPrice;
-import controller.*;
-import utility.Validation;
+import controller.IllegalCoinException;
 
 /**
  * Inspired by the book: Flexible, Reliable Software
@@ -10,7 +9,9 @@ import utility.Validation;
  */
 
 public class PPayStation {
-	
+
+	// calculation
+	private final Calculation calculation = new Calculation(this);
 	// PayStation ident
 	private int id;	
 	// PayStaion model
@@ -50,6 +51,14 @@ public class PPayStation {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
+
+	public ControlPrice getControlPrice() {
+		return this.controlPrice;
+	}
+
+	public void setControlPrice(ControlPrice controlPrice) {
+		this.controlPrice = controlPrice;
+	}
 	
 	public void addAmount(Coin coin, PPrice currentPrice) {
 		
@@ -65,50 +74,22 @@ public class PPayStation {
 		}
 		
 		this.amount += valueInCent;
-	}
-	
+	}	
+
 	public int getTimeBoughtInMinutes() {
-		
-		PPrice aPrice = controlPrice.getCurrentPrice();
-		int timeBoughtInMinutes = 0;
-
-		double timeBoughtInSeconds = this.amount * aPrice.getParkingPrice();
-		timeBoughtInMinutes = (int) ((timeBoughtInSeconds + 59) / 60);
-
-		return timeBoughtInMinutes;
+		return calculation.getTimeBoughtInMinutes();
 	}
-	
+
 	public void validateCoin(Coin coin) throws IllegalCoinException {
-		
-		Validation.validateCoin(coin);	
+		calculation.validateCoin(coin);
 	}
-	
 
 	private double getEuroCoinValueInCent(Coin coin) {
-		double valueInCent = 0;
-		double coinValue = coin.getAmount();
-
-		if (coin.getCoinType() == Currency.ValidCoinType.INTEGER) {
-			valueInCent = coinValue * 100;
-		} else {
-			valueInCent = coinValue;
-		}
-
-		return valueInCent;
+		return calculation.getEuroCoinValueInCent(coin);
 	}
 
 	private double getDkkCoinValueInCent(Coin coin, PPrice price) {
-		double valueInCent = 0;
-		Currency.ValidCoinType coinType = coin.getCoinType();
-		double coinValue = coin.getAmount();
-
-		if (coinType == Currency.ValidCoinType.INTEGER) {
-			valueInCent = (coinValue * 100) / price.getExchangeEuroDkk();
-		} else {
-			valueInCent = coinValue / price.getExchangeEuroDkk();
-		}
-
-		return valueInCent;
+		return calculation.getDkkCoinValueInCent(coin, price);
 	}	
 	
 }
