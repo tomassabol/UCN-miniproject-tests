@@ -1,12 +1,9 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.*;
-import org.junit.Assert.*;
 
 import model.*;
-import controller.*;
 
 public class TestCalculation {
  
