@@ -5,10 +5,19 @@ public class Coin {
 	private int amount; 
 	private Currency.ValidCurrency currency;
 	private Currency.ValidCoinType coinType;
+
+	private Currency.InvalidCurrency invalidCurrency;
+
 	
 	public Coin(int amount, Currency.ValidCurrency currency, Currency.ValidCoinType coinType) {
 		this.amount = amount;
 		this.currency = currency;
+		this.coinType = coinType;
+	}
+
+	public Coin(int amount, Currency.InvalidCurrency currency, Currency.ValidCoinType coinType) {
+		this.amount = amount;
+		this.invalidCurrency = currency;
 		this.coinType = coinType;
 	}
 	

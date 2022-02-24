@@ -41,6 +41,25 @@ public class ControlPayStation {
 		payStation.addAmount(coin, currentPrice);	
 	}
 
+	// Receive one coin as input
+	public void addPayment(int amount, Currency.InvalidCurrency currency, Currency.ValidCoinType coinType) throws IllegalCoinException {
+	
+		Coin coin = new Coin(amount, currency, coinType);
+		
+		// Test if coin is valid
+		try {	
+			payStation.validateCoin(coin);
+		}
+		catch (IllegalCoinException coinError) {
+			throw new IllegalCoinException(
+					"Invalid coin: " + currency.toString() + ", " + coinType.toString() + ", " + amount);
+		}
+		
+		PPrice currentPrice = controlPrice.getCurrentPrice();
+		// Add amount
+		payStation.addAmount(coin, currentPrice);	
+	}
+
 	// Process the buy
 	public PReceipt buy() throws DatabaseLayerException {
 		LocalDate currentTime = java.time.LocalDate.now();

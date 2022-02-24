@@ -7,7 +7,8 @@ package model;
 
 public class Currency {
 	
-	public enum ValidCurrency { EURO, DKK, SEK, NOK };
+	public enum ValidCurrency { EURO, DKK };
+	public enum InvalidCurrency { SEK, NOK, GBP, USD };
 	public enum ValidCoinType { FRACTION, INTEGER };
 
 }
